@@ -4,8 +4,6 @@ import { WebSocket } from "ws"
 let senderSocket : WebSocket | null = null;
 let receiverSocket : WebSocket | null = null;
 
-console.log(receiverSocket)
-
 export async function handleSocketMessage(data : any, ws: WebSocket){
     switch(data.type){
         case "sender" : senderSocket = ws;

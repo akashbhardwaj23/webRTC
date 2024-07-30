@@ -36,6 +36,14 @@ wss.on('connection', (ws) => {
         //     }
         // }
     });
+    ws.on("close", (code, reason) => {
+        const jsonData = reason.toString();
+        console.log(jsonData);
+        // const data = JSON.parse(jsonData)
+        //@ts-ignore
+        // const reasonData = JSON.parse(reason.toString());
+        console.log("Code id ", code + " Reason is ", jsonData);
+    });
 });
 server.listen(8080, () => {
     console.log("Server started on http://localhost:8080");

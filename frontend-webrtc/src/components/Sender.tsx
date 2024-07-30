@@ -11,7 +11,7 @@ export function Sender(){
            
         }
         setSocket(socket);
-
+        return () => socket.close();
     }, [])
 
     async function sendVideo() {

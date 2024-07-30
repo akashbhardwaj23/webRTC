@@ -43,6 +43,13 @@ wss.on('connection', (ws : WebSocket) => {
         // }
 
     })
+
+    ws.on("close", (code, reason) => {
+        const jsonData = reason.toJSON();
+        //@ts-ignore
+        // const reasonData = JSON.parse(reason.toString());
+        console.log("Code id ", code + " Reason is ", jsonData)
+    })
 })
 
 
