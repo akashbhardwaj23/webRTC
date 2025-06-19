@@ -2,12 +2,15 @@ import { WebSocketServer, WebSocket } from "ws";
 import {createServer} from "http";
 import { handleSocketMessage } from "./socket";
 
+
 const server = createServer();
 const wss = new WebSocketServer({ server });
 
 
 wss.on('connection', (ws : WebSocket) => {
     ws.on("error" , console.error);
+
+    console.log("Connected ws ", ws.protocol)
 
     ws.on('message', (message: string) => {
         const data = JSON.parse(message);

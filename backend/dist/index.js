@@ -7,6 +7,7 @@ const server = (0, http_1.createServer)();
 const wss = new ws_1.WebSocketServer({ server });
 wss.on('connection', (ws) => {
     ws.on("error", console.error);
+    console.log("Connected ws ", ws.protocol);
     ws.on('message', (message) => {
         const data = JSON.parse(message);
         (0, socket_1.handleSocketMessage)(data, ws);
@@ -43,6 +44,8 @@ wss.on('connection', (ws) => {
         console.log("Code id ", code + " Reason is ", jsonData);
     });
 });
-server.listen(8080, () => {
-    console.log("Server started on http://localhost:8080");
+const PORT = process.env.PORT || 8080;
+// Important for render because it cause 
+server.listen(PORT, () => {
+    console.log(`Server started on port ${PORT}`);
 });
