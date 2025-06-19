@@ -51,6 +51,12 @@ wss.on('connection', (ws : WebSocket) => {
 })
 
 
-server.listen(8080, () => {
-    console.log("Server started on http://localhost:8080");
+
+
+
+const PORT = process.env.PORT || 8080;
+
+// Important for render because it cause 
+server.listen(PORT, () => {
+    console.log(`Server started on port ${PORT}`);
 })
