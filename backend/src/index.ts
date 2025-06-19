@@ -6,8 +6,6 @@ const server = createServer();
 const wss = new WebSocketServer({ server });
 
 
-
-
 wss.on('connection', (ws : WebSocket) => {
     ws.on("error" , console.error);
 

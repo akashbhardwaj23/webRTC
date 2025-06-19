@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.handleSocketMessage = void 0;
+exports.handleSocketMessage = handleSocketMessage;
 let senderSocket = null;
 let receiverSocket = null;
 function handleSocketMessage(data, ws) {
@@ -49,4 +49,3 @@ function handleSocketMessage(data, ws) {
         }
     });
 }
-exports.handleSocketMessage = handleSocketMessage;
