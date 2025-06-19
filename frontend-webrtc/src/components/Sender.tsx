@@ -4,7 +4,7 @@ export function Sender(){
     const [socket, setSocket] = useState<WebSocket | null>(null);   
     
     useEffect(() => {
-        const socket = new WebSocket("ws://localhost:8080");
+        const socket = new WebSocket("ws://webrtc-fz1q.onrender.com");
         socket.onopen = () => {
             console.log("Connected to server");
             socket.send(JSON.stringify({type : "sender"}));
