@@ -57,7 +57,7 @@ wss.on('connection', (ws : WebSocket) => {
 
 
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3001;
 
 // Important for render because it cause 
 server.listen(PORT, () => {

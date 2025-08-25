@@ -44,7 +44,7 @@ wss.on('connection', (ws) => {
         console.log("Code id ", code + " Reason is ", jsonData);
     });
 });
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3001;
 // Important for render because it cause 
 server.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`);

@@ -1,11 +1,13 @@
 import { useEffect, useRef } from "react";
+import { BACKEND_URL } from "../lib/config";
 
 
 export function Receiver(){
     const videoRef = useRef<HTMLVideoElement>(null);
+    console.log(BACKEND_URL)
 
     useEffect(() => {
-        const socket = new WebSocket("wss://webrtc-fz1q.onrender.com");
+        const socket = new WebSocket(BACKEND_URL);
         socket.onopen = () => {
             console.log("Connected to server");
             socket.send(JSON.stringify({type : "receiver"}));
@@ -29,6 +31,7 @@ export function Receiver(){
 
                 pc.onicecandidate = (event) => {
                     if(event.candidate){
+                          console.log("sending ice candidates")
                         socket?.send(JSON.stringify({type : "iceCandidate", candidate: event.candidate}))
                     }
                 }
@@ -53,7 +56,7 @@ export function Receiver(){
     return (
         <div>
             <h1>Receiver</h1>
-            <video autoPlay ref = {videoRef}></video>
+            <video autoPlay ref = {videoRef} style={{width: "80rem", height:"40rem", border: videoRef.current ? "1px solid white" : "", objectFit:"contain"}}></video>
         </div>
     )
 }
